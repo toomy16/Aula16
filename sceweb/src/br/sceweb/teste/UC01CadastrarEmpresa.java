@@ -46,5 +46,22 @@ public class UC01CadastrarEmpresa {
 	public void CT01UC01FBCadastrarEmpresa_com_sucesso() {
 		assertEquals(1, empresaDAO.adicionar(empresa));
 	}
+	/**
+	 * verificar o comportamento do sistema na inclusão de empresa com sucesso
+	 */
+
+	@Test(expected=RuntimeException.class)
+	public void CT02UC01FBCadastrarEmpresa_invalida() {
+		empresaDAO.adicionar(empresa);
+		empresaDAO.adicionar(empresa);
+	}
+	/**
+	 * verificar o comportamento do sistema na inclusão de empresa com sucesso
+	 */
+
+	@Test(expected=RuntimeException.class)
+	public void CT03UC01FBExcluirEmpresa_invalida() {
+		assertEquals(0, empresaDAO.adicionar(empresa));
+	}
 
 }
